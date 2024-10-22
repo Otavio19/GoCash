@@ -1,0 +1,15 @@
+.contentLogin{
+    height: 100vh;
+}
+
+.logoLogin{
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    & h1{
+        span{
+            color: var(--color-green);
+        }
+    }
+}

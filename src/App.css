@@ -1,0 +1,12 @@
+:root {
+  --color-green: #00bf63;
+  --color-firstGrey: #919191;
+  --color-grey: #737373;
+  --color-greyDark: #292f33;
+}
+
+*{
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
