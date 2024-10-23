@@ -1,0 +1,6 @@
+.cardContainer{
+    padding: 2rem;
+    background-color: var(--color-grey);
+    border-radius: 1rem;
+    margin: 0.5rem auto;
+}
