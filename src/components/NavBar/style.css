@@ -2,11 +2,10 @@
     border: 1px solid red;
     height: 99vh;
     color: #fff;
-    max-width: 99vh;
     overflow-y: scroll;
     overflow-x: hidden;
     background-color: var(--color-greyDark);
-
+    
     img{
         margin: 1rem auto;
         display: block;
