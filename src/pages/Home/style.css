@@ -1,5 +1,5 @@
 .containerHome{
-    border: 1px solid red;
     overflow: hidden;
     overflow-y: auto;
+    color: #fff;
 }

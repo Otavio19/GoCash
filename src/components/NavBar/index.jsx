@@ -10,12 +10,14 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { useState } from 'react'
+import { Link } from "react-router-dom";
 
 //Icons
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import MenuIcon from '@mui/icons-material/Menu';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import PersonIcon from '@mui/icons-material/Person';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const NavBar = ({ openMenu }) => {
 
@@ -29,12 +31,11 @@ const NavBar = ({ openMenu }) => {
         <Box sx={{ width: 250, backgroundColor: 'var(--color-greyDark)', minHeight: '100vh', color: '#fff' }} role="presentation" onClick={toggleDrawer(false)}>
             <List>
                 {[
-                    { text: 'Oportunidades', icon: <RocketLaunchIcon /> },
-                    { text: 'Taxas', icon: <RocketLaunchIcon /> },
-                    { text: 'Oportunidades', icon: <RocketLaunchIcon /> },
-                    { text: 'Oportunidades', icon: <RocketLaunchIcon /> }].map((item) => (
+                    { text: 'Oportunidades', icon: <RocketLaunchIcon />, link: '/' },
+                    { text: 'Carteira', icon: <AccountBalanceWalletIcon />, link: '/wallet' },
+                    { text: 'Perfil', icon: <PersonIcon />, link: '/' }].map((item) => (
                         <ListItem key={item.text} disablePadding sx={{ '&:hover': { color: 'var(--color-green)' } }}>
-                            <ListItemButton>
+                            <ListItemButton component={Link} to={item.link} sx={{ textDecoration: 'none' }}>
                                 <ListItemIcon sx={{ color: '#fff' }}>
                                     {item.icon}
                                 </ListItemIcon>
@@ -45,16 +46,17 @@ const NavBar = ({ openMenu }) => {
             </List>
             <Divider />
             <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding sx={{ '&:hover': { color: 'var(--color-green)' } }}>
-                        <ListItemButton>
-                            <ListItemIcon sx={{ color: '#fff' }}>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
+                {[
+                    { text: 'Sair', icon: <LogoutIcon /> }].map((item) => (
+                        <ListItem key={item.text} disablePadding sx={{ '&:hover': { color: 'var(--color-green)' } }}>
+                            <ListItemButton>
+                                <ListItemIcon sx={{ color: '#fff' }}>
+                                    {item.icon}
+                                </ListItemIcon>
+                                <ListItemText primary={item.text} />
+                            </ListItemButton>
+                        </ListItem>
+                    ))}
             </List>
         </Box>
     );
