@@ -9,11 +9,13 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { useState } from 'react'
 
+//Icons
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import MenuIcon from '@mui/icons-material/Menu';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
 
 const NavBar = ({ openMenu }) => {
 
@@ -26,16 +28,20 @@ const NavBar = ({ openMenu }) => {
     const DrawerList = (
         <Box sx={{ width: 250, backgroundColor: 'var(--color-greyDark)', minHeight: '100vh', color: '#fff' }} role="presentation" onClick={toggleDrawer(false)}>
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding sx={{ '&:hover': { color: 'var(--color-green)' } }}>
-                        <ListItemButton>
-                            <ListItemIcon sx={{ color: '#fff' }}>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
+                {[
+                    { text: 'Oportunidades', icon: <RocketLaunchIcon /> },
+                    { text: 'Taxas', icon: <RocketLaunchIcon /> },
+                    { text: 'Oportunidades', icon: <RocketLaunchIcon /> },
+                    { text: 'Oportunidades', icon: <RocketLaunchIcon /> }].map((item) => (
+                        <ListItem key={item.text} disablePadding sx={{ '&:hover': { color: 'var(--color-green)' } }}>
+                            <ListItemButton>
+                                <ListItemIcon sx={{ color: '#fff' }}>
+                                    {item.icon}
+                                </ListItemIcon>
+                                <ListItemText primary={item.text} />
+                            </ListItemButton>
+                        </ListItem>
+                    ))}
             </List>
             <Divider />
             <List>
