@@ -13,6 +13,8 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { useState } from 'react'
 
+import MenuIcon from '@mui/icons-material/Menu';
+
 const NavBar = ({ openMenu }) => {
 
     const [open, setOpen] = useState(false);
@@ -22,12 +24,12 @@ const NavBar = ({ openMenu }) => {
     };
 
     const DrawerList = (
-        <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+        <Box sx={{ width: 250, backgroundColor: 'var(--color-greyDark)', minHeight: '100vh', color: '#fff' }} role="presentation" onClick={toggleDrawer(false)}>
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
+                    <ListItem key={text} disablePadding sx={{ '&:hover': { color: 'var(--color-green)' } }}>
                         <ListItemButton>
-                            <ListItemIcon>
+                            <ListItemIcon sx={{ color: '#fff' }}>
                                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                             </ListItemIcon>
                             <ListItemText primary={text} />
@@ -38,9 +40,9 @@ const NavBar = ({ openMenu }) => {
             <Divider />
             <List>
                 {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
+                    <ListItem key={text} disablePadding sx={{ '&:hover': { color: 'var(--color-green)' } }}>
                         <ListItemButton>
-                            <ListItemIcon>
+                            <ListItemIcon sx={{ color: '#fff' }}>
                                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                             </ListItemIcon>
                             <ListItemText primary={text} />
@@ -53,24 +55,10 @@ const NavBar = ({ openMenu }) => {
 
 
     return (
-        /*
-        <nav className='navBarContainer'>
-            <div className="perfilNavBar">
-                <button onClick={openMenu}>MENU</button>
-                <img src="https://placehold.co/70" alt="" />
-                <h2>Otávio Afonso Elias</h2>
-            </div>
-            <hr />
-            <ul className='listNavBar'>
-                <li>Ordens</li>
-                <li>Perfil</li>
-                <li>Sair</li>
-            </ul>
-        </nav>
-        */
-        <div>
-            <Button onClick={toggleDrawer(true)}>Open drawer</Button>
-            <Drawer open={open} onClose={toggleDrawer(false)}>
+        <div className='navBarContainer'>
+            <Button onClick={toggleDrawer(true)} sx={{ color: '#fff' }}><MenuIcon /></Button>
+            <h2><span className='logoGreen'>Go</span>Cash</h2>
+            <Drawer open={open} onClose={toggleDrawer(false)} sx={{ backgroundColor: 'var(--color-greyDark)' }}>
                 {DrawerList}
             </Drawer>
         </div>
