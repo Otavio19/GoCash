@@ -19,7 +19,7 @@ import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-const NavBar = ({ openMenu }) => {
+const NavBar = ({ setLogin }) => {
 
     const [open, setOpen] = useState(false);
 
@@ -27,13 +27,17 @@ const NavBar = ({ openMenu }) => {
         setOpen(newOpen);
     };
 
+    const logout = () =>{
+        setLogin(false)
+    }
+
     const DrawerList = (
         <Box sx={{ width: 250, backgroundColor: 'var(--color-greyDark)', minHeight: '100vh', color: '#fff' }} role="presentation" onClick={toggleDrawer(false)}>
             <List>
                 {[
                     { text: 'Oportunidades', icon: <RocketLaunchIcon />, link: '/' },
                     { text: 'Carteira', icon: <AccountBalanceWalletIcon />, link: '/wallet' },
-                    { text: 'Perfil', icon: <PersonIcon />, link: '/' }].map((item) => (
+                    { text: 'Perfil', icon: <PersonIcon />, link: '/perfil' }].map((item) => (
                         <ListItem key={item.text} disablePadding sx={{ '&:hover': { color: 'var(--color-green)' } }}>
                             <ListItemButton component={Link} to={item.link} sx={{ textDecoration: 'none' }}>
                                 <ListItemIcon sx={{ color: '#fff' }}>
@@ -47,10 +51,10 @@ const NavBar = ({ openMenu }) => {
             <Divider />
             <List>
                 {[
-                    { text: 'Sair', icon: <LogoutIcon /> }].map((item) => (
-                        <ListItem key={item.text} disablePadding sx={{ '&:hover': { color: 'var(--color-green)' } }}>
+                    { text: 'Sair', icon: <LogoutIcon />, link:'/login' }].map((item) => (
+                        <ListItem key={item.text} disablePadding sx={{ '&:hover': { color: 'var(--color-green)' } }} onClick={logout}>
                             <ListItemButton>
-                                <ListItemIcon sx={{ color: '#fff' }}>
+                                <ListItemIcon component={Link} to={item.link} sx={{ color: '#fff' }}>
                                     {item.icon}
                                 </ListItemIcon>
                                 <ListItemText primary={item.text} />

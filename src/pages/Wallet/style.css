@@ -1,0 +1,18 @@
+.containerChart{
+    background-color: var(--color-grey);
+    padding: 0.5rem;
+    border-radius: 0.7rem;
+}
+
+.titleChart
+{
+    color: var(--color-firstGrey);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 0.5rem;
+
+    .labelChart{
+        color: var(--color-green);
+    }
+}

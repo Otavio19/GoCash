@@ -13,3 +13,22 @@
         }
     }
 }
+
+.containerLogin{
+    background-color: var(--color-firstGrey);
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.containerButton{
+    border: 1px solid var(--color-green);
+    color: var(--color-green);
+}
+
+.containerButton:hover{
+    background-color: var(--color-green);
+    color: #fff;
+}

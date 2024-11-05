@@ -5,6 +5,8 @@ import './index.css'
 import Home from './pages/Home/index.jsx'
 import Wallet from './pages/Wallet/index.jsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Perfil from './pages/Perfil/index.jsx'
+import Login from './pages/Login'
 
 const router = createBrowserRouter([{
   path: "/",
@@ -17,8 +19,17 @@ const router = createBrowserRouter([{
     {
       path: "/wallet",
       element: <Wallet />
-    }
+    },
+    {
+      path:"/perfil",
+      element: <Perfil />
+    },
+    
   ]
+},
+{
+  path: "/login",
+  element: <Login />
 }])
 
 createRoot(document.getElementById('root')).render(
