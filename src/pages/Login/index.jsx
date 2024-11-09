@@ -1,5 +1,6 @@
 import './style.css'
 import React, { useState } from 'react';
+import { USER_ID, API_URL } from "../../config/api";
 
 import { Grid2 } from '@mui/material';
 import TextField from '@mui/material/TextField';
@@ -18,7 +19,7 @@ const Login = ({ setLogin }) => {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:3333/auth/login', {
+            const response = await fetch(`${API_URL}/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

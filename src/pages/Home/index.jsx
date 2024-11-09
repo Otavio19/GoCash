@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { USER_ID, API_URL } from "../../config/api";
 import { Grid2 } from '@mui/material';
 import Card from '../../components/Card';
 import './style.css'
@@ -13,7 +14,7 @@ const Home = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const res = await fetch(`http://localhost:3333/orderDelivery/${userObj.id}`);
+                const res = await fetch(`${API_URL}/orderDelivery/${userObj.id}`);
                 if (!res.ok) {
                     throw new Error('Erro na requisição: ' + res.statusText);
                 }
