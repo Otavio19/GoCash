@@ -26,6 +26,10 @@ const Card = ({cliente, taxa, totalPedido, id}) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const handleRedirect = () => {
+      window.location.href = 'https://google.com.br/maps/place/R.+Rubião+de+Almeida,+Sorocaba+-+SP,+18076-290';
+    };
+
     return (
         <>
         <Grid2 item size={{ md: 4, sm: 12, xs: 11 }} className="cardContainer" onClick={handleOpen}>
@@ -50,7 +54,7 @@ const Card = ({cliente, taxa, totalPedido, id}) => {
           <p> Valor: $ {totalPedido}</p>
           <p>Taxa: $ <span className='taxaCard'>{taxa}</span> </p>
           </Typography>
-          <Button size="large" fullWidth color="">
+          <Button size="large" fullWidth color="" onClick={handleRedirect}>
                         Seguir Rota
           </Button>
           <p className='enderecoCard'>
